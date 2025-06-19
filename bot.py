@@ -87,22 +87,22 @@ async def like_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ])
 
     msg = (
-        f"🎯 *Like Request*
+        f"🎯 *Like Request*\n
 
 "
-        f"👤 *From:* {player_name}
+        f"👤 *From:* {player_name}\n
 
 "
-        f"🆔 *UID:* `{uid}`
+        f"🆔 *UID:* `{uid}`\n
 
 "
-        f"🎖 *Rank:* {rank}
+        f"🎖 *Rank:* {rank}\n
 
 "
-        f"🌍 *Region:* {region}
+        f"🌍 *Region:* {region}\n
 
 "
-        f"⚠️ Verify within 10 minutes"
+        f"⚠️ Verify within 10 minutes"\n
     )
     await update.message.reply_text(msg, reply_markup=keyboard, parse_mode='Markdown')
 
