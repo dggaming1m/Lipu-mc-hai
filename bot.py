@@ -172,13 +172,17 @@ def run_bot():
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("like", like_command))
     app.add_handler(CommandHandler("givevip", givevip_command))
-    application.add_handler(CommandHandler("start", start_callback))
-application.run_polling()
+    # Commenting start_callback as it is not defined
+    # app.add_handler(CommandHandler("start", start_callback))
 
+    # Start Flask server in background
     thread = threading.Thread(target=flask_app.run, kwargs={"host": "0.0.0.0", "port": 8000})
     thread.start()
 
+    # Start verification task
     asyncio.get_event_loop().create_task(process_verified_likes(app))
+
+    # Start the bot
     app.run_polling()
 
 if __name__ == '__main__':
