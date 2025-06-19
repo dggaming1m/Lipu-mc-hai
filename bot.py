@@ -124,7 +124,7 @@ async def process_verified_likes(app: Application):
                     remaining = timedelta(hours=24) - elapsed
                     hours, remainder = divmod(remaining.seconds, 3600)
                     minutes = remainder // 60
-                    result = "❌ You have reached your daily request limit. ❤️‍🩹 Please wait for reset or contact @dg_gaming_1m ✓ to upgrade your vip package!\n\n Try again after: {hours}h {minutes}m"
+                    result = f"❌ You have reached your daily request limit. ❤️‍🩹 Please wait for reset or contact @dg_gaming_1m ✓ to upgrade your vip package!\n\n Try again after: {hours}h {minutes}m"
                     await app.bot.send_message(
                         chat_id=user['chat_id'],
                         reply_to_message_id=user['message_id'],
@@ -172,6 +172,8 @@ def run_bot():
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("like", like_command))
     app.add_handler(CommandHandler("givevip", givevip_command))
+    application.add_handler(CommandHandler("start", start_callback))
+application.run_polling()
 
     thread = threading.Thread(target=flask_app.run, kwargs={"host": "0.0.0.0", "port": 8000})
     thread.start()
