@@ -1,9 +1,3 @@
-services:
-  - type: web
-    name: lipu-mc-hai
-    env: python
-    buildCommand: ""
-    startCommand: "python bot.py"
-    envVars:
-      - key: PORT
-        value: 8000
+build:
+  environment:
+    pythonVersion: 3.11
