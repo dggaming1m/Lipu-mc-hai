@@ -93,8 +93,6 @@ async def like_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 🆔 *UID:* `{uid}`
 
-🎖 *Rank:* {rank}
-
 🌍 *Region:* {region}
 
 ⚠️ Verify within 10 minutes"""
